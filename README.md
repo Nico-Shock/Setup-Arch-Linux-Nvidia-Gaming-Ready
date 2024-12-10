@@ -1,11 +1,10 @@
 ## Set Up Keyboard Layout
 
-1. 
    ```
    localectl list-keymaps
    ```
    list all avaably kayboard kayouts
-2. 
+
    ```
    loadkeys de
    ```
@@ -13,7 +12,6 @@
 
 ## Check if bootet to UEFI
 
-1.
   ```
   efivar -l
   ```
