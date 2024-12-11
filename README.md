@@ -306,3 +306,32 @@ sudo pacman -S plasma sddm
 sudo systemctl enable gdm
 ```
 Or enable `sddm` for KDE Plasma.
+
+# Post Setup
+
+## Install Required and Recommended Stuff
+
+```
+sudo pacman -Syu
+```
+
+```
+sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
+```
+
+```
+git clone https://github.com/cachyos/kernel-manager.git
+cd kernel-manager
+```
+
+```
+./configure.sh --prefix=/usr/local
+```
+
+```
+./build.sh
+```
+
+### Launch the CachyOS Kernel Manager
+
+Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
