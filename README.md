@@ -364,9 +364,8 @@ This will make you Arch Linux more Stable.
 ## Install CachyOS Kernel
 
 ```
-paru -S cachyos
+paru -S cachyos-kernel-manager
 ```
-Choose ONLY the CachyOS-Kernel-Manager
 
 ### Launch the CachyOS Kernel Manager
 
