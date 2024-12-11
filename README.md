@@ -242,7 +242,7 @@ initrd /initramfs-linux.img
 echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> /boot/loader/entries
 ```
 
-## Install NVIDIA Drivers (Optional)
+## Install NVIDIA Drivers
 
 ```
 sudo pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings
