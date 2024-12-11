@@ -169,7 +169,7 @@ ls -sf /usr/share/zoneinfo
 Navigate to your timezone directory (e.g., `Europe/Berlin`) and link it:
 
 ```
-ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Berlin > /etc/localtime
 ```
 
 ```
