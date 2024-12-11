@@ -370,3 +370,13 @@ paru -S cachyos-kernel-manager
 ### Launch the CachyOS Kernel Manager
 
 Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
+
+## Theming
+
+```
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+cd WhiteSur-gtk-theme
+./install.sh -l
+cd ..
+rm -rf WhiteSur-gtk-theme
+```
