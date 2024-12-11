@@ -283,6 +283,18 @@ exit
 umount -R /mnt
 reboot
 ```
+## Change Keyboard Layout
+
+   ```
+   localectl list-keymaps
+   ```
+ 
+   ```
+   sudo localectl set-keymap de
+   ```
+   ```
+   sudo reboot
+   ```
 
 ## Install Xorg
 
@@ -306,19 +318,6 @@ sudo systemctl enable gdm
 Or enable `sddm` for KDE Plasma.
 
 # Post Setup
-
-## Change Keyboard Layout
-
-   ```
-   localectl list-keymaps
-   ```
- 
-   ```
-   sudo localectl set-keymap de
-   ```
-   ```
-   sudo reboot
-   ```
 
 ## Install Required and Recommended Stuff
 
@@ -346,3 +345,13 @@ cd kernel-manager
 ### Launch the CachyOS Kernel Manager
 
 Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
+
+## Install CachyOS Repos
+
+```
+curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
+tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+sudo ./cachyos-repo.sh
+sudo pacman -S linux-cachyos linux-cachyos-headers
+sudo pacman -S cachyos-gaming-meta
+```
