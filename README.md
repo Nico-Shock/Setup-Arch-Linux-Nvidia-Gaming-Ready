@@ -133,14 +133,14 @@ Switch to the shell of your installed system.
 ## Install Requirements
 
 ```
-sudo pacman -S dhcpcd networkmanager nano bash-completion
+sudo pacman -S networkmanager nano bash-completion
 ```
-Install `dhcpcd`, `NetworkManager`, and `nano`.
+Install `NetworkManager`, and `nano`.
 
 ```
-sudo systemctl enable dhcpcd@enp56s0 NetworkManager
+sudo systemctl enable NetworkManager
 ```
-Enable the `dhcpcd` and `NetworkManager` services.
+Enable the `NetworkManager` service.
 
 ## Configure Arch System
 
@@ -279,6 +279,7 @@ Exec=/usr/bin/mkinitcpio -P
 ## Reboot the System
 
 ```
+exit
 umount -R /mnt
 reboot
 ```
