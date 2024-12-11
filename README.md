@@ -356,6 +356,8 @@ tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh
 sudo pacman -S linux-cachyos linux-cachyos-headers
 sudo pacman -S cachyos-gaming-meta
+cd ..
+sudo rm -r cachyos-repo.tar.xz cachyos-repo
 ```
 This will make you Arch Linux more Stable.
 
