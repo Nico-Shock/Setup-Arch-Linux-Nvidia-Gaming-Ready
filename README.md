@@ -94,9 +94,52 @@ this wil mount the efi partition to the boot partition
   ```
 this will moujnt you home directory
 
-  ```
-  
-  ```
+## Setup Pacman
+
+   ```
+   cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+   ```
+this will backup the pacman coinfig
+
+   ```
+   sudo pacman -Sy pacman-contrib
+   ```
+
+   ```
+   sudo pacman -S pacman-contrib
+   ```
+this installs pacman.contirv needet for the configuration
+
+   ```
+   rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+   ```
+   here you nned to wait this will install the mirrorlists top you system
+
+## Install linux base system
+
+   ```
+   pacstrap -K /mnt base base-devel Linux linux-firmware
+   ```
+thisninstalls th bas elinxu shoud system to you root directory
+
+## Install network requeirements
+
+   ```
+   sudo pacman -S dhcpcd networkmanager
+   ```
+this will install chcpcd and networkmanager
+
+   ```
+   sudo systemctl enable dhcpcd@enp56s0 NetworkManager
+   ```
+this will enable chcpcd and networkmanagers services
+
+## Install Nvidia Drivers
+
+   ```
+   
+   ```
+
 
 
   
