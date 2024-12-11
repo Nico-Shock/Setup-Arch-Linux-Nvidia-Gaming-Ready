@@ -327,7 +327,7 @@ sudo pacman -Syu
 ```
 
 ```
-sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
+sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator rust cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
 ```
 
 ```
