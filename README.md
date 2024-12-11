@@ -102,7 +102,7 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 Backup the Pacman configuration.
 
 ```
-sudo pacman -Sy pacman-contrib
+pacman -Sy pacman-contrib
 ```
 Install Pacman contrib for configuration.
 
@@ -133,12 +133,12 @@ Switch to the shell of your installed system.
 ## Install Requirements
 
 ```
-sudo pacman -S networkmanager nano bash-completion
+pacman -S networkmanager nano bash-completion
 ```
 Install `NetworkManager`, and `nano`.
 
 ```
-sudo systemctl enable NetworkManager
+systemctl enable NetworkManager
 ```
 Enable the `NetworkManager` service.
 
@@ -245,7 +245,7 @@ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> 
 ## Install NVIDIA Drivers
 
 ```
-sudo pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings
+pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings
 ```
 
 ```
@@ -259,7 +259,7 @@ Add the following to `MODULES=()`: `nvidia nvidia_modeset nvidia_uvm nvidia_drm`
 
 ```
 mkdir /etc/pacman.d/hooks
-sudo nano /etc/pacman.d/hooks/nvidia.hook
+nano /etc/pacman.d/hooks/nvidia.hook
 ```
 Add the following:
 ```
