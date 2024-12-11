@@ -348,6 +348,17 @@ cd ..
 sudo rm -r paru
 ```
 
+## Install CachyOS Repos
+
+```
+curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
+tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+sudo ./cachyos-repo.sh
+sudo pacman -S linux-cachyos linux-cachyos-headers
+sudo pacman -S cachyos-gaming-meta
+```
+This will make you Arch Linux more Stable.
+
 ## Install CachyOS Kernel
 
 ```
@@ -358,14 +369,3 @@ Choose ONLY the CachyOS-Kernel-Manager
 ### Launch the CachyOS Kernel Manager
 
 Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
-
-## Install CachyOS Repos (Optional)
-
-```
-curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
-tar xvf cachyos-repo.tar.xz && cd cachyos-repo
-sudo ./cachyos-repo.sh
-sudo pacman -S linux-cachyos linux-cachyos-headers
-sudo pacman -S cachyos-gaming-meta
-```
-This will make you Arch Linux more Stable.
