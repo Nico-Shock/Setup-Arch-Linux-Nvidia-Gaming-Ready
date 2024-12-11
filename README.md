@@ -307,6 +307,19 @@ Or enable `sddm` for KDE Plasma.
 
 # Post Setup
 
+## Change Keyboard Layout
+
+   ```
+   localectl list-keymaps
+   ```
+ 
+   ```
+   sudo localectl set-keymap de
+   ```
+   ```
+   sudo reboot
+   ```
+
 ## Install Required and Recommended Stuff
 
 ```
