@@ -330,6 +330,26 @@ sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-ge
 ```
 Only install Dolphin if you using KDE Plasma.
 
+## Install Yay and Paru
+
+```
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+sudo rm -r yay
+```
+
+```
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+cd ..
+sudo rm -r paru
+```
+
+## Install CachyOS Kernel
+
 ```
 paru -S cachyos
 ```
