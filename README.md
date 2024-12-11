@@ -330,23 +330,15 @@ sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-ge
 ```
 
 ```
-git clone https://github.com/cachyos/kernel-manager.git
-cd kernel-manager
+paru -S cachyos
 ```
-
-```
-./configure.sh --prefix=/usr/local
-```
-
-```
-./build.sh
-```
+Choose ONLY the CachyOS-Kernel-Manager
 
 ### Launch the CachyOS Kernel Manager
 
 Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
 
-## Install CachyOS Repos
+## Install CachyOS Repos (Optional)
 
 ```
 curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
@@ -355,3 +347,4 @@ sudo ./cachyos-repo.sh
 sudo pacman -S linux-cachyos linux-cachyos-headers
 sudo pacman -S cachyos-gaming-meta
 ```
+This will make you Arch Linux more Stable.
