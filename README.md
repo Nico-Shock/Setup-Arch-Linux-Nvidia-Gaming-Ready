@@ -1,146 +1,308 @@
 ## Set Up Keyboard Layout
 
-   ```
-   localectl list-keymaps
-   ```
-   list all avaably kayboard kayouts
+```
+localectl list-keymaps
+```
+List all available keyboard layouts.
 
-   ```
-   loadkeys de
-   ```
-   load the select keyboard layout (defautl is us)
+```
+loadkeys de
+```
+Load the selected keyboard layout (default is US).
 
-## Check if bootet to UEFI
+## Check if Booted to UEFI
 
-  ```
-  efivar -l
-  ```
-  if loits of wierd unkwon text appear on your screen that byou prorably doent unterstand thats means ou bootet into uefi mode
+```
+efivar -l
+```
+If lots of unknown text appears on your screen that you don’t understand, it means you booted into UEFI mode.
 
-  ## Check Internet connection
+## Check Internet Connection
 
-    ```
-    ping archlinux.org
-    ```
-    this will ping a website and show you an outout in bytes where you can check of you connectet to the internet
+```
+ping archlinux.org
+```
+This will ping a website and show an output in bytes to check if you’re connected to the internet.
 
-  ## Get disk information
+## Get Disk Information
 
-  ```
-  lsblk
-  ```
-  this wil show all informations about you instakkled disks on you pc (you can use it all the time after changing things on you disk to show infomrmations needet later)
+```
+lsblk
+```
+This will show all information about your installed disks. You can use it anytime after changing your disks to display the updated information.
 
-  ## partition the disk
+## Partition the Disk
 
-  ```
-  cfdisk /dev/nvme0n1
-  ```
-  this will use the cfdiks tool to easaly partitioning you disk
+```
+cfdisk /dev/nvme0n1
+```
+This will use the `cfdisk` tool for easier partitioning of your disk.
 
-  - make sure to select "gpt"
-  - Create a New partition with the size of 1024M and give it the type "EFI SYSTEM"
-  - then create ontoher partition with the size of the half of you ram or maximum 8GB (8GB is the recommenced but you can create larger like 16GB) make the Type a Linux Swap Partition
-  - create ontoher parition with the size of 20-40GB and make it you root partitio nwith the type root system
-  - Then create a last ontiher partition with the restr of you avaiable size and leave uit as default
-  
-  ## format the partitions
+- Select **gpt**.
+- Create a new partition with 1024M size and set the type to **EFI System**.
+- Create another partition with the size of half your RAM or up to 8GB (16GB is optional but not necessary) and set the type to **Linux Swap**.
+- Create a third partition of 20–40GB and set the type to **Linux root**.
+- Use the remaining available space to create a final partition, leaving the type as default.
 
-  ```
-  mkfs.fat -F32 /dev/nvme0n1p1
-  ```
-  this will format the efi partition to Fat32 format
+## Format the Partitions
 
-  ```
-  mkswap /dev/nvme0n1p2
-  ```
-  this will format you swap partition
+```
+mkfs.fat -F32 /dev/nvme0n1p1
+```
+Format the EFI partition to FAT32.
 
-  ```
-  swapon /dev/nvme0n1p2
-  ```
-  this will enable you formatet swap partition
+```
+mkswap /dev/nvme0n1p2
+```
+Format your swap partition.
 
-  ```
-  mkfs.ext4 /dev/nvme0n1p3
-  ```
-  this will format you root (20-40GB) disk to the linxu ext4 file system
+```
+swapon /dev/nvme0n1p2
+```
+Enable your swap partition.
 
-  ```
-  mkfs.ext4 /dev/nvme0n1p4
-  ```
-  this will format you main home partition where all you files will be sotred to the linux ext4 file system
+```
+mkfs.ext4 /dev/nvme0n1p3
+```
+Format your root partition (20–40GB) to the Linux ext4 file system.
 
-## mount the partitions to install linux base system
+```
+mkfs.ext4 /dev/nvme0n1p4
+```
+Format your home partition to the Linux ext4 file system.
 
-  ```
-  mount /dev/nvme0n1p3 /mnt
-  ```
-this will mount you root partition to: /mnt
+## Mount the Partitions to Install Linux Base System
 
-  ```
-  mkdir /mnt/boot
-  mkdir /mnt/home
-  ```
-this will create a new derecorys for you home partition and you bootloader
+```
+mount /dev/nvme0n1p3 /mnt
+```
+Mount your root partition to `/mnt`.
 
-  ```
-  mount /dev/nvme0n1p1 /mnt/boot
-  ```
-this wil mount the efi partition to the boot partition
+```
+mkdir /mnt/boot
+mkdir /mnt/home
+```
+Create directories for your bootloader and home partition.
 
-  ```
-  mount /dev/nvme0n1p4 /mnt/home
-  ```
-this will moujnt you home directory
+```
+mount /dev/nvme0n1p1 /mnt/boot
+```
+Mount the EFI partition to `/boot`.
+
+```
+mount /dev/nvme0n1p4 /mnt/home
+```
+Mount your home directory.
 
 ## Setup Pacman
 
-   ```
-   cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-   ```
-this will backup the pacman coinfig
+```
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+```
+Backup the Pacman configuration.
 
-   ```
-   sudo pacman -Sy pacman-contrib
-   ```
+```
+sudo pacman -Sy pacman-contrib
+```
+Install Pacman contrib for configuration.
 
-   ```
-   sudo pacman -S pacman-contrib
-   ```
-this installs pacman.contirv needet for the configuration
+```
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+```
+Rank the mirror list to optimize download speeds.
 
-   ```
-   rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
-   ```
-   here you nned to wait this will install the mirrorlists top you system
+## Install Linux Base System
 
-## Install linux base system
+```
+pacstrap -K /mnt base base-devel linux linux-firmware
+```
+Install the base Linux system to your root directory.
 
-   ```
-   pacstrap -K /mnt base base-devel Linux linux-firmware
-   ```
-thisninstalls th bas elinxu shoud system to you root directory
+```
+genfstab -U -p /mnt >> /mnt/etc/fstab
+```
+Generate an `fstab` file.
 
-## Install network requeirements
+## Access the Root System
 
-   ```
-   sudo pacman -S dhcpcd networkmanager
-   ```
-this will install chcpcd and networkmanager
+```
+arch-chroot /mnt /bin/bash
+```
+Switch to the shell of your installed system.
 
-   ```
-   sudo systemctl enable dhcpcd@enp56s0 NetworkManager
-   ```
-this will enable chcpcd and networkmanagers services
+## Install Requirements
 
-## Install Nvidia Drivers
+```
+sudo pacman -S dhcpcd networkmanager nano bash-completion
+```
+Install `dhcpcd`, `NetworkManager`, and `nano`.
 
-   ```
-   
-   ```
+```
+sudo systemctl enable dhcpcd@enp56s0 NetworkManager
+```
+Enable the `dhcpcd` and `NetworkManager` services.
 
+## Configure Arch System
 
+```
+nano /etc/locale.gen
+```
+Find your language (e.g., `de_DE`), uncomment it, and save changes.
 
-  
-  
+```
+locale-gen
+```
+Apply the language settings to your system.
+
+```
+echo LANG=de_DE.UTF-8 >> /etc/locale.conf
+```
+Add your language configuration.
+
+```
+export LANG=de_DE.UTF-8
+```
+
+```
+ls -sf /usr/share/zoneinfo
+```
+Navigate to your timezone directory (e.g., `Europe/Berlin`) and link it:
+
+```
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+```
+
+```
+echo iusearchbtw >> /etc/hostname
+```
+Replace `iusearchbtw` with your preferred hostname.
+
+```
+hwclock --systohc --utc
+```
+
+```
+systemctl enable fstrim.timer
+```
+
+```
+nano /etc/pacman.conf
+```
+Uncomment `[multilib]` (but not `multilib-testing`) and save the changes.
+
+```
+pacman -Sy
+```
+
+```
+passwd
+```
+Set a password for the root user.
+
+```
+useradd -m -G wheel -s /bin/bash <username>
+```
+Replace `<username>` with your desired username.
+
+```
+passwd <username>
+```
+Set a password for your new user.
+
+```
+nano /etc/sudoers
+```
+Uncomment `%wheel ALL=(ALL) ALL`.  
+Add `Defaults rootpw` to require the root password for sudo.
+
+## Install Bootloader
+
+```
+mount -t efivarfs efivarfs /sys/firmware/efi/efivars/
+```
+
+```
+bootctl install
+```
+Install the bootloader.
+
+```
+nano /boot/loader/entries/arch.conf
+```
+Name the config file whatever you want.  
+Paste this into the config file:  
+
+```
+title Arch
+Linux /vmlinuz-linux
+initrd /initramfs-linux.img
+```
+
+```
+echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> /boot/loader/entries
+```
+
+## Install NVIDIA Drivers (Optional)
+
+```
+sudo pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings
+```
+
+```
+sudo pacman -S linux-headers
+```
+
+```
+nano /etc/mkinitcpio.conf
+```
+Add the following to `MODULES=()`:
+```
+nvidia nvidia_modeset nvidia_uvm nvidia_drm
+```
+
+```
+mkdir /etc/pacman.d/hooks
+sudo nano /etc/pacman.d/hooks/nvidia.hook
+```
+Add the following:
+```
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=nvidia
+
+[Action]
+Depends=mkinitcpio
+When=PostTransaction
+Exec=/usr/bin/mkinitcpio -P
+```
+
+## Reboot the System
+
+```
+umount -R /mnt
+reboot
+```
+
+## Install Xorg
+
+```
+sudo pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
+```
+
+## Install a Desktop Environment
+
+```
+sudo pacman -S gnome gdm
+```
+Alternatively, for KDE Plasma:
+```
+sudo pacman -S plasma sddm
+```
+
+```
+sudo systemctl enable gdm
+```
+Or enable `sddm` for KDE Plasma.
