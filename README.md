@@ -234,7 +234,7 @@ Paste this into the config file:
 
 ```
 title Arch
-Linux /vmlinuz-linux
+linux /vmlinuz-linux
 initrd /initramfs-linux.img
 ```
 
