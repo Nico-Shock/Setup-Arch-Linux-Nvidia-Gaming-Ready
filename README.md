@@ -107,7 +107,7 @@ sudo pacman -Sy pacman-contrib
 Install Pacman contrib for configuration.
 
 ```
-rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup >> /etc/pacman.d/mirrorlist
 ```
 Rank the mirror list to optimize download speeds.
 
@@ -169,7 +169,7 @@ ls -sf /usr/share/zoneinfo
 Navigate to your timezone directory (e.g., `Europe/Berlin`) and link it:
 
 ```
-ln -sf /usr/share/zoneinfo/Europe/Berlin > /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Berlin >> /etc/localtime
 ```
 
 ```
@@ -255,10 +255,7 @@ sudo pacman -S linux-headers
 ```
 nano /etc/mkinitcpio.conf
 ```
-Add the following to `MODULES=()`:
-```
-nvidia nvidia_modeset nvidia_uvm nvidia_drm
-```
+Add the following to `MODULES=()`: `nvidia nvidia_modeset nvidia_uvm nvidia_drm`
 
 ```
 mkdir /etc/pacman.d/hooks
