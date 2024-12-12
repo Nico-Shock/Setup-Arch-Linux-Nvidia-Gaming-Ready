@@ -226,10 +226,10 @@ Add `Defaults rootpw` to require the root password for sudo.
 ## Install Bootloader
 
 ```
-mount -t efivarfs efivarfs /sys/firmware/efi/efivars/
 exit
 systemctl daemon-reload
 arch-chroot /mnt /bin/bash
+mount -t efivarfs efivarfs /sys/firmware/efi/efivars/
 ```
 
 ```
