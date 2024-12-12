@@ -193,7 +193,18 @@ systemctl enable fstrim.timer
 ```
 nano /etc/pacman.conf
 ```
-Uncomment `[multilib]` (but not `multilib-testing`) and save the changes.
+- Uncomment `[multilib]` (but not `multilib-testing`) and save the changes.
+- Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
+Make Download faster (second time)
+
+```
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup >> /etc/pacman.d/mirrorlist
+```
+Rank the mirror list to optimize download speeds.
+
+Rank the mirror list to optimize download speeds.
+(second time)
+
 
 ```
 pacman -Sy
@@ -300,6 +311,13 @@ reboot
    ```
    sudo reboot
    ```
+
+## Make Download Faster (third time)
+
+```
+nano /etc/pacman.conf
+```
+Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
 
 ## Install Xorg
 
