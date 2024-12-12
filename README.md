@@ -197,10 +197,6 @@ nano /etc/pacman.conf
 - Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
 Make Download faster (second time)
 
-Rank the mirror list to optimize download speeds.
-(second time)
-
-
 ```
 pacman -Sy
 ```
@@ -224,6 +220,7 @@ Set a password for your new user.
 nano /etc/sudoers
 ```
 Uncomment `%wheel ALL=(ALL) ALL`. (or just search for `# %`)
+
 Add `Defaults rootpw` to require the root password for sudo.
 
 ## Install Bootloader
