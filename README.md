@@ -389,7 +389,7 @@ paru -S cachyos-kernel-manager
 
 Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
 
-## Theming
+## Theming for Gnome
 
 ```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
