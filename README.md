@@ -223,7 +223,7 @@ Set a password for your new user.
 ```
 nano /etc/sudoers
 ```
-Uncomment `%wheel ALL=(ALL) ALL`. (or just search for `# %` 
+Uncomment `%wheel ALL=(ALL) ALL`. (or just search for `# %`)
 Add `Defaults rootpw` to require the root password for sudo.
 
 ## Install Bootloader
