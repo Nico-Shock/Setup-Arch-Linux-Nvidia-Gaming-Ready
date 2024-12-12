@@ -229,9 +229,9 @@ Add `Defaults rootpw` to require the root password for sudo.
 exit
 systemctl daemon-reload
 arch-chroot /mnt /bin/bash
-mount /dev/nvme0n1p3 /mnt
-mount /dev/nvme0n1p1 /mnt/boot
-mount /dev/nvme0n1p4 /mnt/home
+mount /dev/nvme0n1p3 /
+mount /dev/nvme0n1p1 /boot
+mount /dev/nvme0n1p4 /home
 mount -t efivarfs efivarfs /sys/firmware/efi/efivars/
 ```
 
