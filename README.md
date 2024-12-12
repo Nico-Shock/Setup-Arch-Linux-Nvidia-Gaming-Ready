@@ -398,3 +398,16 @@ cd WhiteSur-gtk-theme
 cd ..
 rm -rf WhiteSur-gtk-theme
 ```
+
+## Theming for KDE
+
+```
+git clone https://github.com/joshrandall8478/kde-rice
+```
+
+```
+cd kde-rice/home 
+cp .arch-application-launcher.png ~
+```
+
+OR JUST GO HERE: `https://github.com/joshrandall8478/kde-rice?tab=readme-ov-file`
