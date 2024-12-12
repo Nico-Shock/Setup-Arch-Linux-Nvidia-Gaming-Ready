@@ -111,6 +111,11 @@ rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup >> /etc/pacman.d/mirrorlist
 ```
 Rank the mirror list to optimize download speeds.
 
+```
+nano /etc/pacman.conf
+```
+Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
+
 ## Install Linux Base System
 
 ```
