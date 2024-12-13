@@ -401,26 +401,26 @@ rm -rf WhiteSur-gtk-theme
 
 Exensions for Gnome:
 
-Exension List
-Applincator and KStsatusNotifertlem Support
-Blur my Shell
-Just Perfection
-Dash to Dock
-User Themes
-Arc Menu
-Places Status Indicator
-System Monitor
-Media Label and Controls
-Coverflow
-Impatience
-Gnome 4x UI Improvements
-Caffeein
-moveclock
-Weather O´Clock
-compact top bar
-Tiling Shell
-Magic Lamp Effect
-(Open Bar)
+- Exension List
+- Applincator and KStsatusNotifertlem Support
+- Blur my Shell
+- Just Perfection
+- Dash to Dock
+- User Themes
+- Arc Menu
+- Places Status Indicator
+- System Monitor
+- Media Label and Controls
+- Coverflow
+- Impatience
+- Gnome 4x UI Improvements
+- Caffeein
+- moveclock
+- Weather O´Clock
+- compact top bar
+- Tiling Shell
+- Magic Lamp Effect
+- (Open Bar)
 
 
 ## Theming for KDE
