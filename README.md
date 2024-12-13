@@ -414,6 +414,8 @@ Exensions for Gnome:
 - Magic Lamp Effect
 - (Open Bar)
 
+For OpenBar pre-config download [this](https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple) file and import it to OpenBar.
+
 ```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 cd WhiteSur-gtk-theme
