@@ -391,14 +391,6 @@ Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' the
 
 ## Theming for Gnome
 
-```
-git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-cd WhiteSur-gtk-theme
-./install.sh -l
-cd ..
-rm -rf WhiteSur-gtk-theme
-```
-
 Exensions for Gnome:
 
 - Exension List
@@ -422,6 +414,13 @@ Exensions for Gnome:
 - Magic Lamp Effect
 - (Open Bar)
 
+```
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+cd WhiteSur-gtk-theme
+./install.sh -l
+cd ..
+rm -rf WhiteSur-gtk-theme
+```
 
 ## Theming for KDE
 
