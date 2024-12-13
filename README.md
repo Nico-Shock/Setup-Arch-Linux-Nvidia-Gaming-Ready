@@ -417,6 +417,11 @@ Exensions for Gnome:
 For OpenBar pre-config download [this](https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple) file and import it to OpenBar.
 
 ```
+yay -S numix-circle-icon-theme-git
+```
+select `2` for `numix-circle-icon-theme-git`
+
+```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 cd WhiteSur-gtk-theme
 ./install.sh -l
