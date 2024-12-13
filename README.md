@@ -438,7 +438,7 @@ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 cd WhiteSur-gtk-theme
 ./install.sh -l
 cd ..
-rm -rf WhiteSur-gtk-theme
+sudo rm -r WhiteSur-gtk-theme
 ```
 
 ## Theming for KDE
