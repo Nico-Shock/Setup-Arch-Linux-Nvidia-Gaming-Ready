@@ -400,7 +400,7 @@ rm -rf WhiteSur-gtk-theme
 ```
 
 Exensions for Gnome:
-`
+
 Exension List
 Applincator and KStsatusNotifertlem Support
 Blur my Shell
@@ -421,7 +421,7 @@ compact top bar
 Tiling Shell
 Magic Lamp Effect
 (Open Bar)
-`
+
 
 ## Theming for KDE
 
