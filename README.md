@@ -422,6 +422,18 @@ yay -S numix-circle-icon-theme-git
 select `2` for `numix-circle-icon-theme-git`
 
 ```
+git Clone https://github.com/numixproject/numix-folders.git
+cd numix-folders
+```
+
+```
+sudo ./numix-folders
+```
+Default is Purple.
+
+Then in Ptyxis press `strg+` and select a theme of you choice.
+
+```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 cd WhiteSur-gtk-theme
 ./install.sh -l
