@@ -305,18 +305,21 @@ reboot
    ```
    ```
    sudo reboot
-   ```
 
-## Install Xorg (X11)
+```
+
+## Install Display-Server
+
+### Install Xorg (X11)
 
 ```
 sudo pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
 ```
 
-## Install Wayland (RECOMMENDED)
+### Install Wayland (RECOMMENDED)
 
 ```
-wayland wayland-utils sway
+sudo pacman -S wayland wayland-utils sway
 ```
 
 ## Install a Desktop Environment
