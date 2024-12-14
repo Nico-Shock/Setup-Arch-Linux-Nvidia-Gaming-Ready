@@ -391,8 +391,6 @@ Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' the
 
 ## Theming for Gnome
 
-## Theming for Gnome
-
 ### Extensions for Gnome:
 
 - Extension List
@@ -414,7 +412,7 @@ Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' the
 - Compact Top Bar
 - Tiling Shell
 - Magic Lamp Effect
-- (Open Bar)
+- Open Bar
 
 For OpenBar pre-config download [this](https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple) file and import it to OpenBar.
 
