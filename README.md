@@ -303,10 +303,6 @@ reboot
    ```
    sudo localectl set-keymap de
    ```
-   ```
-   sudo reboot
-
-```
 
 ## Install Display-Server
 
