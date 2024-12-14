@@ -391,10 +391,12 @@ Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' the
 
 ## Theming for Gnome
 
-Exensions for Gnome:
+## Theming for Gnome
 
-- Exension List
-- Applincator and KStsatusNotifertlem Support
+### Extensions for Gnome:
+
+- Extension List
+- Application and KStatusNotifierItem Support
 - Blur my Shell
 - Just Perfection
 - Dash to Dock
@@ -406,10 +408,10 @@ Exensions for Gnome:
 - Coverflow
 - Impatience
 - Gnome 4x UI Improvements
-- Caffeein
-- moveclock
-- Weather O´Clock
-- compact top bar
+- Caffeine
+- Move Clock
+- Weather O'Clock
+- Compact Top Bar
 - Tiling Shell
 - Magic Lamp Effect
 - (Open Bar)
@@ -417,12 +419,11 @@ Exensions for Gnome:
 For OpenBar pre-config download [this](https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple) file and import it to OpenBar.
 
 ```
-yay -S numix-circle-icon-theme-git
+yay -S candy-icons-git
 ```
-select `2` for `numix-circle-icon-theme-git`
 
 ```
-git Clone https://github.com/numixproject/numix-folders.git
+git clone https://github.com/numixproject/numix-folders.git
 cd numix-folders
 ```
 
@@ -431,7 +432,7 @@ sudo ./numix-folders
 ```
 Default is Purple.
 
-Then in Ptyxis press `strg+` and select a theme of you choice.
+Then in Ptyxis press `Ctrl+` and select a theme of your choice.
 
 ```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
@@ -441,15 +442,27 @@ cd ..
 sudo rm -r WhiteSur-gtk-theme
 ```
 
-## Theming for KDE
-
 ```
-git clone https://github.com/joshrandall8478/kde-rice
+sudo pacman -S zsh
 ```
 
-```
-cd kde-rice/home 
-cp .arch-application-launcher.png ~
-```
+Search for a Theme (I use [this](https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/xiong-chiamiov-plus.zsh-theme) theme by the way.)
+I modified it to this:
 
-OR JUST GO HERE: `https://github.com/joshrandall8478/kde-rice?tab=readme-ov-file`
+```
+PROMPT=$'%{\e[0;34m%}%B┌─[%b%{\e[0m%}%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[0m%}%{\e[0;36m%}%m%{\e[0;34m%}%B]%b%{\e[0m%} - %b%{\e[0;34m%}%B[%b%{\e[1;37m%}%~%{\e[0;34m%}%B]%b%{\e[0m%} - %{\e[0;34m%}%B[%b%{\e[0;33m%}'%D{"%a %b %d, %H:%M"}%b$'%{\e[0;34m%}%B]%b%{\e[0m%}
+%{\e[0;34m%}%B└─%B[%{\e[1;35m%}$%{\e[0;34m%}%B] <>%{\e[0m%}%b '
+PS2=$' \e[0;34m%}%B>%{\e[0m%}%b '
+ZSH_THEME="ThemeName"
+```
+Add `ZSH_THEME="ThemeName"` and put a name in it.
+
+How to modify the theme:
+
+```
+sudo nano ~/.zshrc
+```
+Paste the code for your theme in the file or modify it the way you want.
+
+### *Make sure the theming steps are only examples of how I would theme my Linux on Gnome. You can customize it infinitely.*
+
