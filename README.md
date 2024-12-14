@@ -260,7 +260,7 @@ pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-n
 ```
 
 ```
-sudo pacman -S linux-headers
+pacman -S linux-headers
 ```
 
 ```
