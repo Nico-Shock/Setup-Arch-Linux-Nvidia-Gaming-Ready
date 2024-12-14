@@ -315,7 +315,7 @@ sudo pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
 ### Install Wayland (RECOMMENDED)
 
 ```
-sudo pacman -S wayland wayland-utils sway
+sudo pacman -S wayland-utils sway
 ```
 
 ## Install a Desktop Environment
