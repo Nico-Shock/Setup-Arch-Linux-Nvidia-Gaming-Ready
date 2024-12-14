@@ -244,10 +244,11 @@ Name the config file whatever you want.
 Paste this into the config file:  
 
 ```
-title Arch
+title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 ```
+Name the title whatever you want, so you can replace "Arch Linux" with the name you want in your bootloader menu.
 
 ```
 echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> /boot/loader/entries/arch.conf
