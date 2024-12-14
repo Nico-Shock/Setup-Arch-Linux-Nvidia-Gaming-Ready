@@ -304,18 +304,10 @@ reboot
    sudo localectl set-keymap de
    ```
 
-## Install Display-Server
-
-### Install Xorg (X11)
+## Install Xorg
 
 ```
 sudo pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
-```
-
-### Install Wayland (RECOMMENDED)
-
-```
-sudo pacman -S wayland-utils sway
 ```
 
 ## Install a Desktop Environment
