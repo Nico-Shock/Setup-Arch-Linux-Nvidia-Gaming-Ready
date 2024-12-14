@@ -387,7 +387,8 @@ paru -S cachyos-kernel-manager
 
 ### Launch the CachyOS Kernel Manager
 
-Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
+Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.' (Only do this if you do not have the latest CachyOS RC release kernel listed)
+After that, execute the installation to install the kernel.
 
 ## Theming for Gnome
 
