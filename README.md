@@ -307,13 +307,6 @@ reboot
    sudo reboot
    ```
 
-## Make Download Faster (third time)
-
-```
-nano /etc/pacman.conf
-```
-Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
-
 ## Install Xorg
 
 ```
