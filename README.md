@@ -421,6 +421,9 @@ sudo ./numix-folders
 Default is Purple.
 
 Then in Ptyxis press `Ctrl+` and select a theme of your choice.
+I selected the 11th line from the bottom, the slightly darker purple.
+Select `DejaVu Sans Mono Bold 12` for the font.
+
 
 ```
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
@@ -453,4 +456,3 @@ sudo nano ~/.zshrc
 Paste the code for your theme in the file or modify it the way you want.
 
 ### *Make sure the theming steps are only examples of how I would theme my Linux on Gnome. You can customize it infinitely.*
-
