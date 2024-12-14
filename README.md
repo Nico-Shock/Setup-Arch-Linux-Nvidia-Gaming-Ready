@@ -307,10 +307,16 @@ reboot
    sudo reboot
    ```
 
-## Install Xorg
+## Install Xorg (X11)
 
 ```
 sudo pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
+```
+
+## Install Wayland (RECOMMENDED)
+
+```
+wayland wayland-utils sway
 ```
 
 ## Install a Desktop Environment
