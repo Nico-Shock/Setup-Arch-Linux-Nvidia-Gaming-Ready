@@ -337,6 +337,11 @@ sudo pacman -Syu
 ```
 sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator rust cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
 ```
+
+```
+yay -S ptyxis
+```
+
 Only install Dolphin if you using KDE Plasma.
 
 ## Install Yay and Paru
@@ -455,5 +460,10 @@ How to modify the theme:
 sudo nano ~/.zshrc
 ```
 Paste the code for your theme in the file or modify it the way you want.
+
+```
+chsh -s $(which zsh)
+```
+Make zsh your default terminal.
 
 ### *Make sure the theming steps are only examples of how I would theme my Linux on Gnome. You can customize it infinitely.*
