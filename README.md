@@ -154,7 +154,7 @@ export LANG=de_DE.UTF-8
 ```
 
 ```
-ls -sf /usr/share/zoneinfo
+ls -sf /usr/share/zoneinfo/
 ```
 Navigate to your timezone directory (e.g., `Europe/Berlin`) and link it:
 
@@ -313,22 +313,6 @@ Or enable `sddm` for KDE Plasma.
 
 # Post Setup
 
-## Install Required and Recommended Stuff
-
-```
-sudo pacman -Syu
-```
-
-```
-sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator rust cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
-```
-
-```
-yay -S ptyxis
-```
-
-Only install Dolphin if you using KDE Plasma.
-
 ## Install Yay and Paru
 
 ```
@@ -345,6 +329,21 @@ cd paru
 makepkg -si
 cd ..
 sudo rm -r paru
+```
+
+## Install Required and Recommended Stuff
+
+```
+sudo pacman -Syu
+```
+
+```
+sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator rust cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
+```
+Only install Dolphin if you using KDE Plasma.
+
+```
+yay -S ptyxis
 ```
 
 ## Install CachyOS Repos
