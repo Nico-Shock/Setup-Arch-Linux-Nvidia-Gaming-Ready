@@ -39,7 +39,7 @@ cfdisk /dev/nvme0n1
 This will use the `cfdisk` tool for easier partitioning of your disk.
 
 - Select **gpt**.
-- Create a new partition with 1024M size and set the type to **EFI System**.
+- Create a new partition with 2048M size and set the type to **EFI System**.
 - Create another partition with the size of half your RAM or up to 8GB (16GB is optional but not necessary) and set the type to **Linux Swap**.
 - Create a third partition of 20–40GB and set the type to **Linux root**.
 - Use the remaining available space to create a final partition, leaving the type as default.
@@ -368,6 +368,13 @@ paru -S cachyos-kernel-manager
 
 Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.' (Only do this if you do not have the latest CachyOS RC release kernel listed)
 After that, execute the installation to install the kernel.
+Boot again into you USB Drive and Mount all the root and boot partitions and access it with chroot and change you Bootloader config to:
+
+```
+title Arch Linux
+linux /vmlinuz-linux-cachyos-rc
+initrd /initramfs-linux-cachyos-rc.img
+```
 
 ## Theming for Gnome
 
@@ -387,8 +394,6 @@ After that, execute the installation to install the kernel.
 - Impatience
 - Gnome 4x UI Improvements
 - Caffeine
-- Move Clock
-- Weather O'Clock
 - Compact Top Bar
 - Tiling Shell
 - Magic Lamp Effect
@@ -401,14 +406,8 @@ yay -S candy-icons-git
 ```
 
 ```
-git clone https://github.com/numixproject/numix-folders.git
-cd numix-folders
+yay -S ttf-dejavu-sans-mono-powerline-git
 ```
-
-```
-sudo ./numix-folders
-```
-Default is Purple.
 
 Then in Ptyxis press `Ctrl+` and select a theme of your choice.
 I selected the 11th line from the bottom, the slightly darker purple.
