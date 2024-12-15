@@ -94,22 +94,7 @@ mount /dev/nvme0n1p4 /mnt/home
 ```
 Mount your home directory.
 
-## Setup Pacman
-
-```
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-```
-Backup the Pacman configuration.
-
-```
-pacman -Sy pacman-contrib
-```
-Install Pacman contrib for configuration.
-
-```
-rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup >> /etc/pacman.d/mirrorlist
-```
-Rank the mirror list to optimize download speeds.
+## Make downloads faster
 
 ```
 nano /etc/pacman.conf
