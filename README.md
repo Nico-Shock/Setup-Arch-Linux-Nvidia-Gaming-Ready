@@ -466,4 +466,14 @@ chsh -s $(which zsh)
 ```
 Make zsh your default terminal.
 
+Recommended for VMware:
+```
+sudo pacman -S open-vm-tools xf86-video-vmware xf86-input-vmmouse
+```
+
+```
+sudo systemctl enable vmtoolsd
+sudo systemctl start vmtoolsd
+```
+
 ### *Make sure the theming steps are only examples of how I would theme my Linux on Gnome. You can customize it infinitely.*
