@@ -311,9 +311,25 @@ sudo systemctl enable gdm
 ```
 Or enable `sddm` for KDE Plasma.
 
-# Post Setup
+## Post Setup
 
-## Install Yay and Paru
+### Install Required and Recommended Stuff
+
+```
+sudo pacman -Syu
+```
+
+```
+sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator rust cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
+```
+
+```
+yay -S ptyxis
+```
+
+Only install Dolphin if you using KDE Plasma.
+
+### Install Yay and Paru
 
 ```
 git clone https://aur.archlinux.org/yay.git
@@ -329,21 +345,6 @@ cd paru
 makepkg -si
 cd ..
 sudo rm -r paru
-```
-
-## Install Required and Recommended Stuff
-
-```
-sudo pacman -Syu
-```
-
-```
-sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator rust cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
-```
-Only install Dolphin if you using KDE Plasma.
-
-```
-yay -S ptyxis
 ```
 
 ## Install CachyOS Repos
@@ -366,9 +367,9 @@ paru -S cachyos-kernel-manager
 
 ### Launch the CachyOS Kernel Manager
 
-Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.' (Only do this if you do not have the latest CachyOS RC release kernel listed)
+Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
 After that, execute the installation to install the kernel.
-Boot again into you USB Drive and Mount all the root and boot partitions and access it with chroot and change you Bootloader config to:
+Boot again into you USB Drive and Mount the root and boot partition and access it with chroot and change you Bootloader config to:
 
 ```
 title Arch Linux
