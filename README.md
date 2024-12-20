@@ -241,16 +241,6 @@ Name the title whatever you want, so you can replace "Arch Linux" with the name 
 echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> /boot/loader/entries/arch.conf
 ```
 
-## Change Keyboard Layout
-
-   ```
-   localectl list-keymaps
-   ```
- 
-   ```
-   sudo localectl set-keymap de
-   ```
-
 ## Install Xorg
 
 ```
@@ -287,6 +277,16 @@ exit
 umount -R /mnt
 reboot
 ```
+
+## Change Keyboard Layout
+
+   ```
+   localectl list-keymaps
+   ```
+ 
+   ```
+   sudo localectl set-keymap de
+   ```
 
 ## Install CachyOS Repos & Nvidia Drivers
 
