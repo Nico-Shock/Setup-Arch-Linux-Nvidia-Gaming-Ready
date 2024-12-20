@@ -40,7 +40,7 @@ This will use the `cfdisk` tool for easier partitioning of your disk.
 
 - Select **gpt**.
 - Create a new partition with 2048M size and set the type to **EFI System**.
-- Create another partition with the size of half your RAM or up to 8GB (16GB is optional but not necessary) and set the type to **Linux Swap**.
+- Create another partition with the size of half your RAM and set the type to **Linux Swap**.
 - Create a third partition of 20–40GB and set the type to **Linux root**.
 - Use the remaining available space to create a final partition, leaving the type as default.
 
