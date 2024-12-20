@@ -396,6 +396,12 @@ Change the lines in the config to match and boot into the new kernel you install
 
 For OpenBar pre-config download [this](https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple) file and import it to OpenBar.
 
+Install Extenions Manager:
+
+```
+flatpak install flathub com.mattjakeman.ExtensionManager
+```
+
 ```
 yay -S candy-icons-git
 ```
