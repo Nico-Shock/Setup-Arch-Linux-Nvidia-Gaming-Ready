@@ -359,11 +359,17 @@ Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' the
 After that, execute the installation to install the kernel.
 Boot again into you USB Drive and Mount the root and boot partition and access it with chroot and change you Bootloader config to:
 
+## Change Bootloaderconfig
+
 ```
-title Arch Linux
+sudo nano /boot/loader/entries/arch.conf
+```
+
+```
 linux /vmlinuz-linux-cachyos-rc
 initrd /initramfs-linux-cachyos-rc.img
 ```
+Change the lines in the config to match and boot into the new kernel you installed.
 
 ## Theming for Gnome
 
