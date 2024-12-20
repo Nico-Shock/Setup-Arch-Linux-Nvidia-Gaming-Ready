@@ -168,7 +168,7 @@ echo iusearchbtw >> /etc/hostname
 Replace `iusearchbtw` with your preferred hostname.
 
 ```
-hwclock --systohc --utc
+hwclock --systohc --localtime
 ```
 
 ```
@@ -239,47 +239,6 @@ Name the title whatever you want, so you can replace "Arch Linux" with the name 
 echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> /boot/loader/entries/arch.conf
 ```
 
-## Install NVIDIA Drivers
-
-```
-pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings
-```
-
-```
-pacman -S linux-headers
-```
-
-```
-nano /etc/mkinitcpio.conf
-```
-Add the following to `MODULES=()`: `nvidia nvidia_modeset nvidia_uvm nvidia_drm`
-
-```
-mkdir /etc/pacman.d/hooks
-nano /etc/pacman.d/hooks/nvidia.hook
-```
-Add the following:
-```
-[Trigger]
-Operation=Install
-Operation=Upgrade
-Operation=Remove
-Type=Package
-Target=nvidia
-
-[Action]
-Depends=mkinitcpio
-When=PostTransaction
-Exec=/usr/bin/mkinitcpio -P
-```
-
-## Reboot the System
-
-```
-exit
-umount -R /mnt
-reboot
-```
 ## Change Keyboard Layout
 
    ```
@@ -293,76 +252,97 @@ reboot
 ## Install Xorg
 
 ```
-sudo pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
+pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
 ```
 
 ## Install a Desktop Environment
 
 ```
-sudo pacman -S gnome gdm
+pacman -S gnome gdm
 ```
 Alternatively, for KDE Plasma:
 ```
-sudo pacman -S plasma sddm
+pacman -S plasma sddm
 ```
 
 ```
-sudo systemctl enable gdm
+systemctl enable gdm
 ```
 Or enable `sddm` for KDE Plasma.
 
-## Post Setup
-
-### Install Required and Recommended Stuff
+## Install Recommended Stuff
 
 ```
 sudo pacman -Syu
 ```
 
 ```
-sudo pacman -S flatpak dolphin mpv git fastfetch wget gedit fzf thermald zram-generator rust cmake pkg-config make qt6-base qt6-tools polkit-qt6 python
+sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator rust python python-pip dolphin gnome-tweaks
 ```
 
 ```
 yay -S ptyxis
 ```
 
-Only install Dolphin if you using KDE Plasma.
+Only install Dolphin if you using KDE Plasma. And only install gnome-tweaks on Gnome.
 
-### Install Yay and Paru
-
-```
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
-sudo rm -r yay
-```
+## Reboot the System
 
 ```
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-cd ..
-sudo rm -r paru
+exit
+umount -R /mnt
+reboot
 ```
 
-## Install CachyOS Repos
+## Install CachyOS Repos & Nvidia Drivers
 
 ```
 curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh
-sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta
+sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-kernel-manager cachyos-settings yay
 cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
 ```
 This will make you Arch Linux more Stable.
 
+## Install Chaotic-AUR-Repos
+
+```
+sudo su
+```
+
+```
+pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key 3056513887B78AEB
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+```
+
+```
+exit
+```
+
+```
+sudo gedit /etc/pacman.conf
+```
+Cut all the `cachyos` repos (from line 77 to line 87) to the end of the config. Remove the last 5 lines and replace them with the `cachyos` repos.  
+Then add:
+
+```
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+```
+to the bottom, like the other ones.
+
+```
+sudo pacman -Syu
+```
+
 ## Install CachyOS Kernel
 
 ```
-paru -S cachyos-kernel-manager
+sudo pacman -S cachyos-kernel-manager
 ```
 
 ### Launch the CachyOS Kernel Manager
@@ -451,6 +431,7 @@ chsh -s $(which zsh)
 Make zsh your default terminal.
 
 Recommended for VMware:
+
 ```
 sudo pacman -S open-vm-tools xf86-video-vmware xf86-input-vmmouse
 ```
@@ -458,6 +439,17 @@ sudo pacman -S open-vm-tools xf86-video-vmware xf86-input-vmmouse
 ```
 sudo systemctl enable vmtoolsd
 sudo systemctl start vmtoolsd
+```
+
+Recommended for KVM:
+
+```
+sudo pacman -S spice-vdagent
+```
+
+```
+sudo systemctl enable spice-vdagentd
+sudo systemctl start spice-vdagentd
 ```
 
 ### *Make sure the theming steps are only examples of how I would theme my Linux on Gnome. You can customize it infinitely.*
