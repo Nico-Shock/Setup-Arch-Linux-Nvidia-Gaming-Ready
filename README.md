@@ -299,12 +299,6 @@ cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
 ```
 
-## Install more Recommended Stuff
-
-```
-yay -S ptyxis gnome-terminal
-```
-
 ## Install Chaotic-AUR-Repos
 
 ```
@@ -346,6 +340,11 @@ sudo pacman -S yay
 
 ```
 yay -S paru
+```
+## Install more Recommended Stuff
+
+```
+yay -S ptyxis gnome-terminal
 ```
 
 ## Install CachyOS Kernel
