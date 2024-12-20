@@ -252,7 +252,7 @@ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> 
 ## Install Xorg
 
 ```
-pacman -S xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm
+pacman -S xorg
 ```
 
 ## Install a Desktop Environment
@@ -284,7 +284,7 @@ sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator rust
 yay -S ptyxis
 ```
 
-Only install Dolphin if you using KDE Plasma. And only install gnome-tweaks on Gnome.
+Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
 
 ## Reboot the System
 
@@ -304,7 +304,6 @@ sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta linux-cac
 cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
 ```
-This will make you Arch Linux more Stable.
 
 ## Install Chaotic-AUR-Repos
 
