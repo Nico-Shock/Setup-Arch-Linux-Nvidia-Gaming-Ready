@@ -380,10 +380,7 @@ Change the lines in the config to match and boot into the new kernel you install
 - Blur my Shell
 - Just Perfection
 - Dash to Dock
-- User Themes
 - Arc Menu
-- Places Status Indicator
-- System Monitor
 - Media Label and Controls
 - Coverflow
 - Impatience
@@ -393,6 +390,9 @@ Change the lines in the config to match and boot into the new kernel you install
 - Tiling Shell
 - Magic Lamp Effect
 - Open Bar
+- User Themes
+- Places Status Indicator
+- System Monitor
 
 For OpenBar pre-config download [this](https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple) file and import it to OpenBar.
 
