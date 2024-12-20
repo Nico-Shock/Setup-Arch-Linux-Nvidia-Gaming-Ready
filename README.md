@@ -356,7 +356,7 @@ sudo pacman -S cachyos-kernel-manager
 
 ### Launch the CachyOS Kernel Manager
 
-Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.'
+Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.' (Only if you do not have the latest RC kernel `linux-cachyos-rc`, or if you prefer to use a stable kernel with lower performance, you should use the `linux-cachyos` kernel.)
 After that, execute the installation to install the kernel.
 Boot again into you USB Drive and Mount the root and boot partition and access it with chroot and change you Bootloader config to:
 
