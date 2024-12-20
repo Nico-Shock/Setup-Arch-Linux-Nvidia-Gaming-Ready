@@ -294,7 +294,7 @@ reboot
 curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh
-sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-kernel-manager cachyos-settings yay
+sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-kernel-manager cachyos-settings
 cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
 ```
