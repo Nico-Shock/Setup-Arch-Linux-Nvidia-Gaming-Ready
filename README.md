@@ -267,6 +267,7 @@ Alternatively, for KDE Plasma:
 pacman -S plasma sddm
 ```
 
+
 ```
 systemctl enable gdm
 ```
@@ -275,17 +276,9 @@ Or enable `sddm` for KDE Plasma.
 ## Install Recommended and Required Stuff
 
 ```
-sudo pacman -Syu
-```
-
-```
 sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator rust python python-pip dolphin gnome-tweaks
 ```
 Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
-
-```
-yay -S ptyxis gnome-terminal
-```
 
 ## Reboot the System
 
@@ -304,6 +297,12 @@ sudo ./cachyos-repo.sh
 sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-kernel-manager cachyos-settings yay
 cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
+```
+
+## Install more Recommended Stuff
+
+```
+yay -S ptyxis gnome-terminal
 ```
 
 ## Install Chaotic-AUR-Repos
