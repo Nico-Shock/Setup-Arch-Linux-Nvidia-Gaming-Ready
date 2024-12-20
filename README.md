@@ -125,7 +125,7 @@ Switch to the shell of your installed system.
 ## Install Requirements
 
 ```
-pacman -S networkmanager nano bash-completion
+pacman -S networkmanager nano
 ```
 Install `NetworkManager`, and `nano`.
 
