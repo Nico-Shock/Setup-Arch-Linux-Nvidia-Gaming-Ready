@@ -44,6 +44,8 @@ This will use the `cfdisk` tool for easier partitioning of your disk.
 - Create a third partition of 20–40GB and set the type to **Linux root**.
 - Use the remaining available space to create a final partition, leaving the type as default.
 
+*You don't need to create a separate root partition for your system. This is only necessary for additional security, but it's not really required. However, if you plan to install more apps, resizing the partition will be necessary — though this is not needed if you choose not to create a separate root partition.*
+
 ## Format the Partitions
 
 ```
