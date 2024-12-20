@@ -335,7 +335,17 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 to the bottom, like the other ones.
 
 ```
-sudo pacman -Syu
+sudo pacman -Sy
+```
+
+## Install yay and paru.
+
+```
+sudo pacman -S yay
+```
+
+```
+yay -S paru
 ```
 
 ## Install CachyOS Kernel
