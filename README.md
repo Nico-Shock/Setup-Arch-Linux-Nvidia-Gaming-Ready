@@ -270,14 +270,6 @@ sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator pyth
 ```
 Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
 
-## Reboot the System
-
-```
-exit
-umount -R /mnt
-reboot
-```
-
 ## Change Keyboard Layout
 
    ```
@@ -287,6 +279,14 @@ reboot
    ```
    sudo localectl set-keymap de
    ```
+
+## Reboot the System
+
+```
+exit
+umount -R /mnt
+reboot
+```
 
 ## Install CachyOS Repos & Nvidia Drivers
 
