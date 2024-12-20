@@ -266,7 +266,7 @@ Or enable `sddm` for KDE Plasma.
 ## Install Recommended and Required Stuff
 
 ```
-sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator rust python python-pip dolphin gnome-tweaks
+sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator python python-pip dolphin gnome-tweaks
 ```
 Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
 
