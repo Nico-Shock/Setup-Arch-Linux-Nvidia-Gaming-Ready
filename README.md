@@ -390,6 +390,7 @@ Change the lines in the config to match and boot into the new kernel you install
 - Tiling Shell
 - Magic Lamp Effect
 - Open Bar
+- Forge
 - User Themes
 - Places Status Indicator
 - System Monitor
