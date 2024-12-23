@@ -299,11 +299,19 @@ Or enable `sddm` for KDE Plasma.
 
 ## Install Recommended and Required Stuff
 
+### Required Stuff
+
 ```
-sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator python python-pip dolphin gnome-tweaks
+sudo pacman -S flatpak git wget gedit thermald dolphin gnome-tweaks
 ```
 
 Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
+
+### Recommended Stuff
+
+```
+sudo pacman -S fzf python python-pip bluez blueman bluez-utils preload zram-generator fastfetch
+```
 
 ## Install NVIDIA Drivers (Required to change the NVIDIA driver later)
 
