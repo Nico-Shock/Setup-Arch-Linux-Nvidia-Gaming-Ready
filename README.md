@@ -387,7 +387,7 @@ Make sure you don't need to install the `linux-cachyos linux-cachyos-headers lin
 - Tiling Shell
 - Magic Lamp Effect
 - Open Bar
-- Forge
+- Highlight Focus
 - User Themes
 - Places Status Indicator
 - System Monitor
