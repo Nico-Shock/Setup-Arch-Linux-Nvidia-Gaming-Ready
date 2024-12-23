@@ -182,7 +182,6 @@ nano /etc/pacman.conf
 ```
 - Uncomment `[multilib]` (but not `multilib-testing`) and save the changes.
 - Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
-Make Download faster (second time)
 
 ```
 pacman -Sy
