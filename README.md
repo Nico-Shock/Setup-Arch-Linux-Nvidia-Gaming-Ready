@@ -283,13 +283,13 @@ reboot
 - Then go to "Keyboard" and select "Add Keyboard Layout."
 - Choose your desired layout and delete the other layouts.
 
-## Install CachyOS Repos & Nvidia Drivers
+## Install CachyOS Repos & Nvidia Requirements
 
 ```
 wget https://mirror.cachyos.org/cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh
-sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-settings
+sudo pacman -S cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-settings
 cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
 ```
@@ -353,7 +353,6 @@ sudo pacman -S cachyos-kernel-manager
 
 Select 'Configure' and under 'Options,' select the 'RC - Release Candidate,' then click on 'Build Kernel.' (Only if you do not have the latest RC kernel `linux-cachyos-rc`, or if you prefer to use a stable kernel with lower performance, you should use the `linux-cachyos` kernel.)
 After that, execute the installation to install the kernel.
-Boot again into you USB Drive and Mount the root and boot partition and access it with chroot and change you Bootloader config to:
 
 ## Change Bootloaderconfig
 
@@ -365,7 +364,9 @@ sudo nano /boot/loader/entries/arch.conf
 linux /vmlinuz-linux-cachyos-rc
 initrd /initramfs-linux-cachyos-rc.img
 ```
+
 Change the lines in the config to match and boot into the new kernel you installed.
+Make sure you don't need to install the `linux-cachyos linux-cachyos-headers linux-cachyos-nvidia-open` packages manually because they will be installed automatically for the kernel you installed.
 
 ## Theming for Gnome
 
