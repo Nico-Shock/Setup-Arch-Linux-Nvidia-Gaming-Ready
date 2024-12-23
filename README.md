@@ -3,11 +3,13 @@
 ```
 localectl list-keymaps
 ```
+
 List all available keyboard layouts.
 
 ```
 loadkeys de
 ```
+
 Load the selected keyboard layout (default is US).
 
 ## Check if Booted to UEFI
@@ -22,6 +24,7 @@ If lots of unknown text appears on your screen that you don’t understand, it m
 ```
 ping archlinux.org
 ```
+
 This will ping a website and show an output in bytes to check if you’re connected to the internet.
 
 ## Get Disk Information
@@ -29,6 +32,7 @@ This will ping a website and show an output in bytes to check if you’re connec
 ```
 lsblk
 ```
+
 This will show all information about your installed disks. You can use it anytime after changing your disks to display the updated information.
 
 ## Partition the Disk
@@ -36,6 +40,7 @@ This will show all information about your installed disks. You can use it anytim
 ```
 cfdisk /dev/nvme0n1
 ```
+
 This will use the `cfdisk` tool for easier partitioning of your disk.
 
 - Select **gpt**.
@@ -51,26 +56,31 @@ This will use the `cfdisk` tool for easier partitioning of your disk.
 ```
 mkfs.fat -F32 /dev/nvme0n1p1
 ```
+
 Format the EFI partition to FAT32.
 
 ```
 mkswap /dev/nvme0n1p2
 ```
+
 Format your swap partition.
 
 ```
 swapon /dev/nvme0n1p2
 ```
+
 Enable your swap partition.
 
 ```
 mkfs.ext4 /dev/nvme0n1p3
 ```
+
 Format your root partition (20–40GB) to the Linux ext4 file system.
 
 ```
 mkfs.ext4 /dev/nvme0n1p4
 ```
+
 Format your home partition to the Linux ext4 file system.
 
 ## Mount the Partitions to Install Linux Base System
@@ -78,22 +88,26 @@ Format your home partition to the Linux ext4 file system.
 ```
 mount /dev/nvme0n1p3 /mnt
 ```
+
 Mount your root partition to `/mnt`.
 
 ```
 mkdir /mnt/boot
 mkdir /mnt/home
 ```
+
 Create directories for your bootloader and home partition.
 
 ```
 mount /dev/nvme0n1p1 /mnt/boot
 ```
+
 Mount the EFI partition to `/boot`.
 
 ```
 mount /dev/nvme0n1p4 /mnt/home
 ```
+
 Mount your home directory.
 
 ## Make downloads faster
@@ -101,6 +115,7 @@ Mount your home directory.
 ```
 nano /etc/pacman.conf
 ```
+
 Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
 
 ## Install Linux Base System
@@ -108,11 +123,13 @@ Enable parallel downloads by removing the `#` from the respective line. (If you 
 ```
 pacstrap -K /mnt base base-devel linux linux-firmware
 ```
+
 Install the base Linux system to your root directory.
 
 ```
 genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
+
 Generate an `fstab` file.
 
 ## Access the Root System
@@ -120,6 +137,7 @@ Generate an `fstab` file.
 ```
 arch-chroot /mnt /bin/bash
 ```
+
 Switch to the shell of your installed system.
 
 ## Install Requirements
@@ -127,11 +145,13 @@ Switch to the shell of your installed system.
 ```
 pacman -S networkmanager nano
 ```
+
 Install `NetworkManager`, and `nano`.
 
 ```
 systemctl enable NetworkManager
 ```
+
 Enable the `NetworkManager` service.
 
 ## Configure Arch System
@@ -139,16 +159,19 @@ Enable the `NetworkManager` service.
 ```
 nano /etc/locale.gen
 ```
+
 Find your language (e.g., `de_DE`), uncomment it, and save changes.
 
 ```
 locale-gen
 ```
+
 Apply the language settings to your system.
 
 ```
 echo LANG=de_DE.UTF-8 >> /etc/locale.conf
 ```
+
 Add your language configuration.
 
 ```
@@ -158,6 +181,7 @@ export LANG=de_DE.UTF-8
 ```
 ls -sf /usr/share/zoneinfo/
 ```
+
 Navigate to your timezone directory (e.g., `Europe/Berlin`) and link it:
 
 ```
@@ -167,6 +191,7 @@ ln -sf /usr/share/zoneinfo/Europe/Berlin >> /etc/localtime
 ```
 echo iusearchbtw >> /etc/hostname
 ```
+
 Replace `iusearchbtw` with your preferred hostname.
 
 ```
@@ -180,6 +205,7 @@ systemctl enable fstrim.timer
 ```
 nano /etc/pacman.conf
 ```
+
 - Uncomment `[multilib]` (but not `multilib-testing`) and save the changes.
 - Enable parallel downloads by removing the `#` from the respective line. (If you are unsure about the config, leave it at 5.)
 
@@ -190,21 +216,25 @@ pacman -Sy
 ```
 passwd
 ```
+
 Set a password for the root user.
 
 ```
 useradd -m -G wheel -s /bin/bash <username>
 ```
+
 Replace `<username>` with your desired username.
 
 ```
 passwd <username>
 ```
+
 Set a password for your new user.
 
 ```
 nano /etc/sudoers
 ```
+
 Uncomment `%wheel ALL=(ALL) ALL`. (or just search for `# %`)
 
 Add `Defaults rootpw` to require the root password for sudo.
@@ -221,11 +251,13 @@ mount -t efivarfs efivarfs /sys/firmware/efi/efivars/
 ```
 bootctl install
 ```
+
 Installs the bootloader.
 
 ```
 nano /boot/loader/entries/arch.conf
 ```
+
 Name the config file whatever you want.  
 Paste this into the config file:  
 
@@ -234,6 +266,7 @@ title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 ```
+
 Name the title whatever you want, so you can replace "Arch Linux" with the name you want in your bootloader menu.
 
 ```
@@ -251,6 +284,7 @@ pacman -S xorg-xwayland xorg-xinit
 ```
 pacman -S gnome gdm
 ```
+
 Alternatively, for KDE Plasma:
 ```
 pacman -S plasma sddm
@@ -260,6 +294,7 @@ pacman -S plasma sddm
 ```
 systemctl enable gdm
 ```
+
 Or enable `sddm` for KDE Plasma.
 
 ## Install Recommended and Required Stuff
@@ -267,6 +302,7 @@ Or enable `sddm` for KDE Plasma.
 ```
 sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator python python-pip dolphin gnome-tweaks
 ```
+
 Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
 
 ## Install NVIDIA Drivers (Required to change the NVIDIA driver later)
@@ -319,6 +355,13 @@ Make sure that the step for installing the CachyOS kernel, which installs the `l
 - Then go to "Keyboard" and select "Add Keyboard Layout."
 - Choose your desired layout and delete the other layouts.
 
+## Settings needed to Install the open nvidia drievrs from cachyos:
+
+```
+nano /etc/mkinitcpio.conf
+```
+Remove from MODULES=(): `nvidia nvidia_modeset nvidia_uvm nvidia_drm`
+
 ## Install CachyOS Repos
 
 ```
@@ -360,6 +403,7 @@ exit
 ```
 sudo gedit /etc/pacman.conf
 ```
+
 Cut all the `cachyos` repos (from line 77 to line 87) to the end of the config. Remove the last 5 lines and replace them with the `cachyos` repos.  
 Then add:
 
@@ -468,6 +512,7 @@ PROMPT=$'%{\e[0;34m%}%B┌─[%b%{\e[0m%}%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[0m%}%{\
 PS2=$' \e[0;34m%}%B>%{\e[0m%}%b '
 ZSH_THEME="ThemeName"
 ```
+
 Add `ZSH_THEME="ThemeName"` and put a name in it.
 
 How to modify the theme:
@@ -475,11 +520,13 @@ How to modify the theme:
 ```
 sudo nano ~/.zshrc
 ```
+
 Paste the code for your theme in the file or modify it the way you want.
 
 ```
 chsh -s $(which zsh)
 ```
+
 Make zsh your default terminal.
 
 Recommended for VMware:
