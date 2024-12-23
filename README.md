@@ -269,6 +269,40 @@ sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator pyth
 ```
 Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
 
+## Install NVIDIA Drivers (Required to change the NVIDIA driver later)
+
+```
+pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings
+```
+
+```
+pacman -S linux-headers
+```
+
+```
+nano /etc/mkinitcpio.conf
+```
+Add the following to `MODULES=()`: `nvidia nvidia_modeset nvidia_uvm nvidia_drm`
+
+```
+mkdir /etc/pacman.d/hooks
+nano /etc/pacman.d/hooks/nvidia.hook
+```
+Add the following:
+```
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=nvidia
+
+[Action]
+Depends=mkinitcpio
+When=PostTransaction
+Exec=/usr/bin/mkinitcpio -P
+```
+
 ## Reboot the System
 
 ```
@@ -277,19 +311,21 @@ umount -R /mnt
 reboot
 ```
 
+Make sure that the step for installing the CachyOS kernel, which installs the `linux-cachyos-nvidia-open` package, also automatically installs the best NVIDIA drivers for your system.
+
 ## Change Keyboard Layout
 
 - Rightclick on your desktop and go to settings.
 - Then go to "Keyboard" and select "Add Keyboard Layout."
 - Choose your desired layout and delete the other layouts.
 
-## Install CachyOS Repos & Nvidia Requirements
+## Install CachyOS Repos
 
 ```
 wget https://mirror.cachyos.org/cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh
-sudo pacman -S cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-settings
+sudo pacman -S cachyos-gaming-meta cachyos-settings
 cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
 ```
@@ -378,7 +414,6 @@ Make sure you don't need to install the `linux-cachyos linux-cachyos-headers lin
 - Just Perfection
 - Dash to Dock
 - Arc Menu
-- Media Label and Controls
 - Coverflow
 - Impatience
 - Gnome 4x UI Improvements
