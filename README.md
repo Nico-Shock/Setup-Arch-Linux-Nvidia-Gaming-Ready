@@ -244,7 +244,7 @@ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> 
 ## Install Xorg
 
 ```
-pacman -S xorg
+pacman -S xorg-xwayland xorg-xinit
 ```
 
 ## Install a Desktop Environment
