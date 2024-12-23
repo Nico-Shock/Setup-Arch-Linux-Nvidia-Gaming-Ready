@@ -313,6 +313,10 @@ Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` 
 sudo pacman -S fzf python python-pip bluez blueman bluez-utils preload zram-generator fastfetch
 ```
 
+```
+sudo systemctl enable preload bluetooth
+```
+
 ## Install NVIDIA Drivers (Required to change the NVIDIA driver later)
 
 ```
