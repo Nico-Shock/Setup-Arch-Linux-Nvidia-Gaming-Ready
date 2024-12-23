@@ -389,7 +389,6 @@ Make sure you don't need to install the `linux-cachyos linux-cachyos-headers lin
 - Open Bar
 - Highlight Focus
 - User Themes
-- Places Status Indicator
 - System Monitor
 
 For OpenBar pre-config download [this](https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple) file and import it to OpenBar.
