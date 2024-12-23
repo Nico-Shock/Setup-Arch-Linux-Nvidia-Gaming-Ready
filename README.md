@@ -270,16 +270,6 @@ sudo pacman -S flatpak git fastfetch wget gedit fzf thermald zram-generator pyth
 ```
 Only install `dolphin` if you using KDE Plasma. And only install `gnome-tweaks` on Gnome.
 
-## Change Keyboard Layout
-
-   ```
-   localectl list-keymaps
-   ```
- 
-   ```
-   sudo localectl set-keymap de
-   ```
-
 ## Reboot the System
 
 ```
@@ -287,6 +277,12 @@ exit
 umount -R /mnt
 reboot
 ```
+
+## Change Keyboard Layout
+
+- Rightclick on your desktop and go to settings.
+- Then go to "Keyboard" and select "Add Keyboard Layout."
+- Choose your desired layout and delete the other layouts.
 
 ## Install CachyOS Repos & Nvidia Drivers
 
@@ -297,6 +293,16 @@ sudo ./cachyos-repo.sh
 sudo pacman -S linux-cachyos linux-cachyos-headers cachyos-gaming-meta linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings cachyos-settings
 cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo
+```
+
+## Install yay and paru.
+
+```
+sudo pacman -S yay
+```
+
+```
+yay -S paru
 ```
 
 ## Install Chaotic-AUR-Repos
@@ -332,15 +338,6 @@ to the bottom, like the other ones.
 sudo pacman -Sy
 ```
 
-## Install yay and paru.
-
-```
-sudo pacman -S yay
-```
-
-```
-yay -S paru
-```
 ## Install more Recommended Stuff
 
 ```
