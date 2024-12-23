@@ -408,7 +408,7 @@ yay -S candy-icons-git
 yay -S ttf-dejavu-sans-mono-powerline-git
 ```
 
-Then in Ptyxis press `Ctrl+` and select a theme of your choice.
+Then in Ptyxis go to settings and select a theme of your choice.
 I selected the 11th line from the bottom, the slightly darker purple.
 Select `DejaVu Sans Mono Bold 12` for the font.
 
