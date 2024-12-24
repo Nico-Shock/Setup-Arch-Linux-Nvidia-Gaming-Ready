@@ -291,18 +291,18 @@ pacman -S xorg-xwayland xorg-xinit
 pacman -S gnome gdm
 ```
 
-Alternatively, for KDE Plasma:
-```
-pacman -S plasma sddm
-```
-
-
-
 ```
 systemctl enable gdm
 ```
-Or enable `sddm` for KDE Plasma.
 
+Or for KDE Plasma:
+
+```
+pacman -S plasma sddm
+
+```
+systemctl enable sddm
+```
 
 ## Install Recommended and Required Stuff
 
