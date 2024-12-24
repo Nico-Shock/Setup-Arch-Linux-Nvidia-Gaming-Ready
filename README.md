@@ -299,6 +299,7 @@ Or for KDE Plasma:
 
 ```
 pacman -S plasma sddm
+```
 
 ```
 systemctl enable sddm
